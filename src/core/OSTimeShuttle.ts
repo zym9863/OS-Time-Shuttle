@@ -585,4 +585,22 @@ export class OSTimeShuttle {
     this.osNodes.clear();
     this.animationCallbacks.length = 0;
   }
+
+  /**
+   * 仅根据筛选条件隐藏/显示节点和连接，不重建节点。
+   * @param visibleIds 需要显示的操作系统ID数组
+   */
+  public filterNodesBy(visibleIds: string[]): void {
+    // 节点显示/隐藏
+    this.osNodes.forEach((node, id) => {
+      node.visible = visibleIds.includes(id);
+    });
+    // 连接显示/隐藏
+    this.connections.children.forEach(line => {
+      if (line.userData && line.userData.connection) {
+        const { from, to } = line.userData.connection;
+        line.visible = visibleIds.includes(from) && visibleIds.includes(to);
+      }
+    });
+  }
 }

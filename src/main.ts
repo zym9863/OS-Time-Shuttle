@@ -128,32 +128,22 @@ class OSTimeShuttleApp {
   }
 
   private filterByTimeRange(startYear: number, endYear: number): void {
-    const filteredData = osData.filter(os => 
-      os.year >= startYear && os.year <= endYear
-    );
-    
-    this.updateVisualization(filteredData);
+    const visibleIds = osData
+      .filter(os => os.year >= startYear && os.year <= endYear)
+      .map(os => os.id);
+    this.timeShuttle.filterNodesBy(visibleIds);
   }
 
   private filterByCategory(categories: string[]): void {
-    const filteredData = osData.filter(os => 
-      categories.includes(os.category)
-    );
-    
-    this.updateVisualization(filteredData);
+    const visibleIds = osData
+      .filter(os => categories.includes(os.category))
+      .map(os => os.id);
+    this.timeShuttle.filterNodesBy(visibleIds);
   }
 
   private updateVisualization(filteredData: typeof osData): void {
-    // 清除现有可视化
-    this.timeShuttle.createTimeline(filteredData);
-    
-    // 过滤相关连接
-    const filteredConnections = connections.filter(conn => 
-      filteredData.some(os => os.id === conn.from) && 
-      filteredData.some(os => os.id === conn.to)
-    );
-    
-    this.timeShuttle.createConnections(filteredConnections);
+    // 兼容重置时的全量刷新
+    this.timeShuttle.filterNodesBy(filteredData.map(os => os.id));
   }
 
   private resetView(): void {
