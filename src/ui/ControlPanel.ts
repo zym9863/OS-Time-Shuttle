@@ -44,8 +44,6 @@ export class ControlPanel {
         <h4>视图控制</h4>
         <div class="view-controls">
           <button id="reset-view">重置视角</button>
-          <button id="focus-timeline">聚焦时间轴</button>
-          <button id="show-connections">显示所有连接</button>
         </div>
       </div>
 
@@ -118,8 +116,6 @@ export class ControlPanel {
 
     // 视图控制按钮
     const resetViewBtn = this.panel.querySelector('#reset-view') as HTMLButtonElement;
-    const focusTimelineBtn = this.panel.querySelector('#focus-timeline') as HTMLButtonElement;
-    const showConnectionsBtn = this.panel.querySelector('#show-connections') as HTMLButtonElement;
 
     resetViewBtn.addEventListener('click', () => {
       if (this.onReset) {
@@ -127,15 +123,6 @@ export class ControlPanel {
       }
     });
 
-    focusTimelineBtn.addEventListener('click', () => {
-      // 这里可以添加聚焦时间轴的逻辑
-      console.log('Focus timeline');
-    });
-
-    showConnectionsBtn.addEventListener('click', () => {
-      // 这里可以添加显示所有连接的逻辑
-      console.log('Show all connections');
-    });
   }
 
   public setTimeRangeCallback(callback: (startYear: number, endYear: number) => void): void {

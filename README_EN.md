@@ -36,7 +36,7 @@ An interactive 3D visualization app for exploring the evolution and influence of
 ### Control Panel Features
 - **Time Range Filter**: Adjust the displayed year range with a slider
 - **System Type Filter**: Filter by category (Mainframe, PC, Server, Mobile, Embedded)
-- **View Controls**: Reset view, focus timeline, show all connections
+- **View Controls**: Reset view
 
 ## 🎨 Visualization Highlights
 
