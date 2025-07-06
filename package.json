@@ -1,15 +1,46 @@
 {
   "name": "os-time-shuttle",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "一个交互式的三维操作系统发展历程可视化应用",
+  "keywords": [
+    "operating-system",
+    "visualization",
+    "three.js",
+    "history",
+    "interactive",
+    "3d",
+    "timeline"
+  ],
+  "author": "OS时光穿梭机开发团队",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist node_modules/.vite",
+    "deploy": "npm run build && npm run preview"
   },
   "devDependencies": {
     "typescript": "~5.8.3",
     "vite": "^7.0.0"
-  }
+  },
+  "dependencies": {
+    "@types/three": "^0.178.0",
+    "three": "^0.178.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/os-time-shuttle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/os-time-shuttle/issues"
+  },
+  "homepage": "https://github.com/your-username/os-time-shuttle#readme"
 }
