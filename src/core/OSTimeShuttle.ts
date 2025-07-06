@@ -603,4 +603,8 @@ export class OSTimeShuttle {
       }
     });
   }
+
+  public getSelectedOS(): string | null {
+    return this.selectedOS;
+  }
 }
